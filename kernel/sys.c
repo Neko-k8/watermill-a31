@@ -576,6 +576,9 @@ error:
 	return retval;
 }
 
+#ifdef CONFIG_KSU
+extern int ksu_handle_setresuid(uid_t ruid, uid_t euid, uid_t suid);
+#endif
 
 /*
  * This function implements a generic ability to update ruid, euid,
@@ -589,6 +592,9 @@ SYSCALL_DEFINE3(setresuid, uid_t, ruid, uid_t, euid, uid_t, suid)
 	int retval;
 	kuid_t kruid, keuid, ksuid;
 
+#ifdef CONFIG_KSU
+       (void)ksu_handle_setresuid(ruid, euid, suid);
+#endif
 	kruid = make_kuid(ns, ruid);
 	keuid = make_kuid(ns, euid);
 	ksuid = make_kuid(ns, suid);
