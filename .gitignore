@@ -118,7 +118,6 @@ all.config
 # fetched Android config fragments
 kernel/configs/android-*.cfg
 
-KernelSU/
 arch/arm64/boot/dts/mediatek/oppo6765_19581.dtb.merge
 arch/arm64/boot/dts/oppo6765_19581/
 drivers/kernelsu/
