@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export CROSS_COMPILE=/home/hakyura/watermill-a31/toolchain/gcc-linaro-4.9.4-2017.01-x86_64_aarch64-elf/bin/aarch64-elf-
-export CC=/home/hakyura/watermill-a31/toolchain/linux-x86-refs_tags_android-9.0.0_r3-clang-4691093/binclang
+export CROSS_COMPILE=/run/media/hakyura/261dea50-a8a4-4d2a-8b3e-540a49827e31/toolchain/aarch64--glibc--stable-2024.05-1/bin/aarch64-buildroot-linux-gnu-
+export CC=/run/media/hakyura/261dea50-a8a4-4d2a-8b3e-540a49827e31toolchain/linux-x86-refs_tags_android-9.0.0_r3-clang-4691093/binclang
 export CLANG_TRIPLE=aarch64-linux-gnu-
 export ARCH=arm64
 export ANDROID_MAJOR_VERSION=r

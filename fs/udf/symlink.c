@@ -155,6 +155,26 @@ out_unmap:
 /*
  * symlinks can't do much...
  */
-const struct address_space_operations udf_symlink_aops = {
-	.readpage		= udf_symlink_filler,
+static int udf_symlink_getattr(const struct path *path, struct kstat *stat,
+				u32 request_mask, unsigned int flags)
+{
+	struct dentry *dentry = path->dentry;
+	struct inode *inode = d_backing_inode(dentry);
+	struct page *page;
+
+	generic_fillattr(inode, stat);
+	page = read_mapping_page(inode->i_mapping, 0, NULL);
+	if (!IS_ERR(page)) {
+		stat->size = strlen(page_address(page));
+		put_page(page);
+	}
+	return 0;
+}
+
+const struct inode_operations udf_symlink_inode_operations = {
+	.readlink	= generic_readlink,
+	.get_link	= page_get_link,
+	.getattr	= udf_symlink_getattr,
 };
+
+
