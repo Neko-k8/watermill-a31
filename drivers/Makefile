@@ -183,5 +183,3 @@ obj-$(CONFIG_TRUSTY)	+= trusty/
 
 #xuyechen@ODM_HQ.Multimedia.audio, 2019/09/24, add for switch class driver
 obj-$(CONFIG_SWITCH)            += switch/
-
-obj-$(CONFIG_KSU) += kernelsu/
