@@ -12,4 +12,4 @@ export CONFIG_SECTION_MISMATCH_WARN_ONLY=y
 make -C $(pwd) O=$(pwd)/out KCFLAGS=-w CONFIG_SECTION_MISMATCH_WARN_ONLY=y watermill_defconfig
 make -C $(pwd) O=$(pwd)/out KCFLAGS=-w CONFIG_SECTION_MISMATCH_WARN_ONLY=y -j4
 
-cp out/arch/arm64/boot/Image $(pwd)/arch/arm64/boot/Image
+cp out/arch/arm64/boot/Image.gz.d $(pwd)/arch/arm64/boot/Image
