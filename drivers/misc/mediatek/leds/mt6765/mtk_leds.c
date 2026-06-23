@@ -933,7 +933,12 @@ void mt_mt65xx_led_set(struct led_classdev *led_cdev, enum led_brightness level)
 	    container_of(led_cdev, struct mt65xx_led_data, cdev);
 	/* unsigned long flags; */
 	/* spin_lock_irqsave(&leds_lock, flags); */
-
+	if (strcmp(led_data->cust.name, "lcd-backlight") == 0) {
+        	if (level > 0 && level <= 255) {
+            		level = 6 + (level * (2047 - 6)) / 255;
+        	}
+    	}
+        
 #ifdef CONFIG_MTK_AAL_SUPPORT
 	if (led_data->level != level) {
 		led_data->level = level;
